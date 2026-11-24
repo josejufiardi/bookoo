@@ -11,14 +11,14 @@
 <meta property="og:image" content="share.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#f7f7f5">
+<meta name="theme-color" content="#fff6e5">
 <!-- <link rel="canonical" href="https://[the domain, once known]/"> -->
 <meta name="site-kind" content="software">
 <meta name="page-type" content="software">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Andika is made for children learning to read (single-storey a and g); it sets only the story text -->
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@75..100,400..700&family=DM+Mono:wght@400;500&family=Andika:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&family=Andika:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -27,17 +27,17 @@
 <link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 :root {
-  --p-bg: #f7f7f5; --p-surface: #ebebe8; --p-ink: #000000; --p-muted: #666662;
-  --p-accent: #d0106f; --p-accent-ink: #ffffff; --p-action: #d0106f; --p-action-ink: #ffffff;
-  --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
-  --p-inv-accent: #d0106f; --p-inv-accent-ink: #ffffff; --p-inv-action: #d0106f; --p-inv-action-ink: #ffffff;
-  --font-display: "Instrument Sans", system-ui, sans-serif;
-  --font-text: "Instrument Sans", system-ui, sans-serif;
-  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --display-weight: 500;
-  --display-tracking: -0.028em;
-  --display-tracking-xl: -0.036em;
-  --display-stretch: 96%;
+  --p-bg: #fff6e5; --p-surface: #ffe9c2; --p-ink: #22304a; --p-muted: #4a5670;
+  --p-accent: #ff6f59; --p-accent-ink: #22304a; --p-action: #ff6f59; --p-action-ink: #22304a;
+  --p-inv-bg: #22304a; --p-inv-surface: #2c3c5c; --p-inv-ink: #fff6e5; --p-inv-muted: #c9d0de;
+  --p-inv-accent: #ffc83d; --p-inv-accent-ink: #22304a; --p-inv-action: #ffc83d; --p-inv-action-ink: #22304a;
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-text: "Nunito", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 700;
+  --display-tracking: -0.005em;
+  --display-tracking-xl: -0.01em;
+  --display-stretch: 100%;
   --ly-scale: 1.04;
 }
 </style>
@@ -62,7 +62,7 @@
 <header class="nav">
   <div class="wrap nav__bar">
     <a class="skip-link" href="#top" data-i18n="skip">Skip to content</a>
-    <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Bookoo</a>
+    <a class="nav__logo" href="#top"><svg class="mascot" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#FFC83D" stroke="#22304A" stroke-width="3"/><circle cx="16" cy="19" r="3" fill="#22304A"/><circle cx="28" cy="19" r="3" fill="#22304A"/><path d="M15 27q7 6 14 0" fill="none" stroke="#22304A" stroke-width="3" stroke-linecap="round"/></svg>Bookoo</a>
     <nav class="nav__links" aria-label="Main">
       <div class="nav__item">
         <a class="nav__link" href="#today"><span data-i18n="nav.stories">Stories</span> <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -106,46 +106,19 @@
 </header>
 
 <main id="top">
-  <section class="hero hero--triptych" data-enter aria-labelledby="hero-h">
-    <div class="wrap"><div class="hero-text grid hero__grid">
-      <div class="span-3">
-        <h1 id="hero-h" data-i18n="hero.h1">A free kids' story every day</h1>
+  <section class="hero hero--kids" data-enter aria-labelledby="hero-h">
+    <img class="kids-sky" src="sky.svg" alt="" fetchpriority="high">
+    <div class="wrap"><div class="hero-text grid kids-hero">
+      <div class="span-6 kids-hero__copy">
+        <p class="sticker"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2l2.4 5 5.6.6-4.2 3.8 1.2 5.6L10 14.2 5 17l1.2-5.6L2 7.6 7.6 7z" fill="#FFC83D" stroke="#22304A" stroke-width="1.6" stroke-linejoin="round"/></svg><span data-i18n="hero.sticker">A new story every day</span></p>
+        <h1 id="hero-h" data-i18n="hero.h1">Free stories for little readers</h1>
         <p class="hero__lead" data-i18n="hero.lead">Short picture stories in English and Indonesian, in simple words for children learning to read. Tap any word to hear it.</p>
-      </div>
-      <!-- the collage: placeholder pictures in each story's colour until the drawings arrive -->
-      <div class="ly-collage span-6 start-4" role="img" aria-label="Pages from Bookoo stories: a picture, a sentence with one word lit, and the same line in English and Indonesian" data-i18n-label="hero.art">
-        <div class="ly-collage__set is-on">
-          <div class="ly-piece pc-ill" style="left: 4%; top: 6%; width: 62%; height: 54%; --c: #f9dcc4"></div>
-          <div class="ly-piece pc-word" style="left: 60%; top: 14%; width: 34%">
-            <span class="pc-say" aria-hidden="true"></span><b data-i18n="pc.word">lion</b><small data-i18n="pc.word.sub">Tap to hear</small>
-          </div>
-          <div class="ly-piece pc-page" style="left: 30%; top: 56%; width: 66%; height: 40%">
-            <small data-i18n="pc.page.title">The Lion and the Mouse · 1 of 6</small>
-            <p data-i18n="pc.page.text">A big <mark>lion</mark> is asleep under a tree.</p>
-          </div>
-        </div>
-        <div class="ly-collage__set" aria-hidden="true">
-          <div class="ly-piece pc-ill" style="left: 34%; top: 6%; width: 62%; height: 52%; --c: #d6ecd2"></div>
-          <div class="ly-piece pc-two" style="left: 4%; top: 20%; width: 46%">
-            <div class="pc-ln"><i>EN</i><span>Hare is very fast.</span></div>
-            <div class="pc-ln"><i>ID</i><span>Kelinci sangat cepat.</span></div>
-          </div>
-          <div class="ly-piece pc-play" style="left: 4%; top: 64%; width: 92%; height: 32%">
-            <span class="pc-btn" aria-hidden="true"></span>
-            <div><b data-i18n="pc.play">Read to me</b><span class="pc-bar"><i></i></span></div>
-          </div>
-        </div>
-        <div class="ly-collage__set" aria-hidden="true">
-          <div class="ly-piece pc-ill" style="left: 4%; top: 6%; width: 44%; height: 50%; --c: #cfe6f2"></div>
-          <div class="ly-piece pc-ill" style="left: 52%; top: 6%; width: 44%; height: 50%; --c: #f6e7b8"></div>
-          <div class="ly-piece pc-today" style="left: 4%; top: 62%; width: 92%; height: 34%">
-            <small data-i18n="pc.today">Today's story</small>
-            <b data-i18n="pc.today.title">Kancil and the Crocodiles</b>
-            <span data-i18n="pc.today.sub">Indonesian folk tale · 6 pages</span>
-          </div>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#today"><svg class="btn__play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"/></svg><span data-i18n="cta">Read today's story</span></a>
+          <a class="btn btn--secondary" href="#library" data-i18n="today.link">See all stories</a>
         </div>
       </div>
-      <div class="span-3 start-10 hero__cta"><a class="btn btn--primary" href="#today" data-i18n="cta">Read today's story</a></div>
+      <a class="span-5 start-8 today-card" href="#today" data-today-card></a>
     </div></div>
   </section>
 
@@ -153,14 +126,10 @@
   <section class="section" id="today" aria-labelledby="today-h">
     <div class="wrap group">
       <div class="grid grid--top">
-        <h2 class="span-5" id="today-h" data-i18n="today.h2">Today's story, ready to read</h2>
-        <p class="span-6 start-7 today__intro"><span class="today__how" data-i18n="today.p">Turn the pages with the arrows. Press Read to me to hear the page, or tap one word to hear it on its own.</span> <a class="link" href="#library" data-i18n="today.link">See all stories</a></p>
+        <h2 class="span-5" id="today-h" data-i18n="today.h2">Let's read together</h2>
+        <p class="span-6 start-7 today__intro"><span data-i18n="today.p">Tap a word to hear it. Press the big speaker to hear the whole page.</span></p>
       </div>
       <div class="app app-frame ui ui-reader fill" id="reader" data-visual>
-        <div class="app__list">
-          <p class="app__head t-label" data-i18n="list.head">Stories</p>
-          <ul class="app__stories" data-story-list></ul>
-        </div>
         <div class="app__open" data-reader aria-live="polite"></div>
       </div>
     </div>
@@ -218,11 +187,11 @@
     </div>
   </section>
 
-  <section class="section g2m" id="library" aria-labelledby="library-h">
+  <section class="section g2m kids-band" id="library" aria-labelledby="library-h">
     <div class="wrap">
       <div class="group">
         <div class="section-head">
-          <h2 id="library-h"><span data-i18n="library.h2">The story library.</span> <span class="muted" data-i18n="library.h2b">One story opens free each day.</span></h2>
+          <h2 id="library-h"><span data-i18n="library.h2">The story shelf.</span> <span class="muted" data-i18n="library.h2b">One story opens free each day.</span></h2>
         </div>
         <ul class="shelf" data-shelf="0"></ul>
       </div>
@@ -302,7 +271,7 @@
     <div class="closing__links">
       <div class="grid">
         <div class="span-4 stack-4">
-          <a class="nav__logo" href="#top"><span class="mark" data-mark="ring" aria-hidden="true"></span>Bookoo</a>
+          <a class="nav__logo" href="#top"><svg class="mascot" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="20" fill="#FFC83D" stroke="#22304A" stroke-width="3"/><circle cx="16" cy="19" r="3" fill="#22304A"/><circle cx="28" cy="19" r="3" fill="#22304A"/><path d="M15 27q7 6 14 0" fill="none" stroke="#22304A" stroke-width="3" stroke-linecap="round"/></svg>Bookoo</a>
           <p class="footer__lede" data-i18n="foot.lede">Short stories in English and Indonesian for children learning to read.</p>
         </div>
         <div class="span-2 footer__col"><h3 data-i18n="nav.stories">Stories</h3><ul><li><a href="#today" data-i18n="menu.today">Today's story</a></li><li><a href="#library" data-i18n="menu.library">Story library</a></li></ul></div>
