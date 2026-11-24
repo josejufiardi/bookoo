@@ -1,0 +1,4 @@
+[
+  { "check": "button-styles", "target": "div.span-3.start-10 > a.btn.btn--primary", "reason": "the dealt triptych hero sets its one button at 64px (heroes.json: 64 tall, 20px label); same pill, same fill" },
+  { "check": "same-action", "target": "div.nav__actions > a.btn.btn--primary", "reason": "the dealt triptych hero sets its button at 64px (heroes.json); the nav copy is the standard 44px pill" }
+]

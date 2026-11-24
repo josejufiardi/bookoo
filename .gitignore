@@ -1,0 +1,5 @@
+.taste-skill/*
+!.taste-skill/*.json
+.taste-skill/build*.json
+.taste-skill/gate.json
+shots/

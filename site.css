@@ -1,0 +1,207 @@
+/* Page CSS: only what sits inside the page's own visuals (the collage, the reader, the card panels, the shelf)
+   and the language switch. Everything else comes from the kit. */
+
+/* ---- the language switch in the bar ---- */
+.lang { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line-strong); border-radius: 999px; }
+.lang button { min-width: 44px; height: 36px; border: 0; border-radius: 999px; background: none; color: var(--ink); font: 500 14px/1 var(--font-text); cursor: pointer; transition: background-color .2s, color .2s; }
+.lang button:hover { background: var(--surface); }
+.lang button[aria-pressed="true"] { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.nav__actions { gap: var(--s-4); }
+@media (max-width: 639px) { .nav__actions { gap: var(--s-2); } .lang { padding: 0; border: 0; gap: 0; } .lang button { min-width: 40px; height: 44px; } }
+.close__word { line-height: 1.05; }
+
+/* ---- a placeholder picture: the story's colour and a small picture mark, until the drawing arrives ---- */
+.ill, .pc-ill, .shelf__cover, .app__thumb {
+  background: var(--c, var(--surface)) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 48'%3E%3Cg fill='%23000' fill-opacity='.16'%3E%3Ccircle cx='46' cy='14' r='6'/%3E%3Cpath d='M0 48 20 22l12 14 8-8 24 20z'/%3E%3C/g%3E%3C/svg%3E") center / 26% no-repeat;
+}
+.app__thumb { background-size: 60%; }
+
+/* ---- the hero collage pieces (sizes in % of the collage, text in container units) ---- */
+.ly-collage { container-type: inline-size; }
+.ly-collage .ly-piece { border-radius: 3cqw; overflow: hidden; box-shadow: 0 1px 2px rgb(0 0 0 / .08), 0 22px 48px -24px rgb(0 0 0 / .35); }
+.ly-collage .ly-piece.pc-ill { background-color: var(--c); background-size: 22%; }
+.ly-collage :is(.pc-word, .pc-page, .pc-two, .pc-play, .pc-today) { background: #fff; color: #111; padding: 4cqw; font: 400 max(13px, 2.4cqw)/1.35 var(--font-text); }
+.pc-say { display: inline-block; width: 1.25em; height: 1.25em; flex: none; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 8v4h3l4 3V5L6 8z'/%3E%3Cpath d='M13 7.5a3.5 3.5 0 0 1 0 5M15 5.5a6.5 6.5 0 0 1 0 9' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3 8v4h3l4 3V5L6 8z'/%3E%3Cpath d='M13 7.5a3.5 3.5 0 0 1 0 5M15 5.5a6.5 6.5 0 0 1 0 9' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+.pc-word { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .4cqw 2cqw; }
+.pc-word .pc-say { grid-row: span 2; width: 7cqw; height: 7cqw; color: var(--p-accent); }
+.pc-word b { font: 700 5.2cqw/1 "Andika", var(--font-text); }
+.pc-word small { color: #6b6b67; font-size: max(13px, 2cqw); }
+.pc-page { display: grid; align-content: start; gap: 2cqw; }
+.pc-page small { color: #6b6b67; font-size: max(13px, 2cqw); }
+.pc-page p { margin: 0; font: 400 4.6cqw/1.45 "Andika", var(--font-text); }
+.pc-page mark, .hw-line .is-on, .book__words .w.is-on { background: color-mix(in oklab, var(--p-accent) 16%, #fff); color: inherit; border-radius: .3em; box-shadow: 0 0 0 .12em color-mix(in oklab, var(--p-accent) 16%, #fff); }
+.pc-two { display: grid; gap: 2.4cqw; }
+.pc-ln { display: grid; grid-template-columns: auto 1fr; gap: 2cqw; align-items: baseline; font: 400 3.6cqw/1.35 "Andika", var(--font-text); }
+.pc-ln i { font: 500 max(13px, 2cqw)/1 var(--font-text); font-style: normal; color: #6b6b67; }
+.pc-play { display: flex; align-items: center; gap: 4cqw; padding-right: 12cqw; }   /* the pause disc sits on this piece's right corner */
+.pc-btn { width: 12cqw; height: 12cqw; flex: none; border-radius: 50%; background: var(--p-accent); position: relative; }
+.pc-btn::after { content: ""; position: absolute; left: 42%; top: 32%; border-left: 3.6cqw solid #fff; border-block: 2.2cqw solid transparent; }
+.pc-play > div { flex: 1; display: grid; gap: 2cqw; }
+.pc-play b { font: 500 4cqw/1 var(--font-text); }
+.pc-bar { height: 1.4cqw; border-radius: 99px; background: #ececea; overflow: hidden; }
+.pc-bar i { display: block; width: 42%; height: 100%; background: var(--p-accent); }
+.pc-today { display: grid; align-content: center; gap: 1.4cqw; padding-right: 12cqw; }
+.pc-today small { color: var(--p-accent); font: 500 max(13px, 2.2cqw)/1 var(--font-text); }
+.pc-today b { font: 500 5.6cqw/1.05 var(--font-display); letter-spacing: -0.02em; }
+.pc-today span { color: #6b6b67; font-size: max(13px, 2.2cqw); }
+
+/* ---- the reader: the story list beside the open book ---- */
+.today__intro { font-size: var(--t-body); line-height: 1.6; }
+.today__intro .link { display: inline; }
+.app { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); margin-top: var(--s-7); background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: 0 1px 2px rgb(0 0 0 / .04), 0 30px 60px -40px rgb(0 0 0 / .25); overflow: hidden; min-height: 0; }
+.app__list { border-right: 1px solid var(--line); padding: var(--s-5) var(--s-3); display: grid; grid-template-rows: auto 1fr; min-height: 0; overflow: hidden; }
+.app__head { color: var(--muted); padding: 0 var(--s-3) var(--s-3); margin: 0; }
+.app__stories { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: 2px; }
+.app__story { width: 100%; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: var(--s-3); padding: var(--s-2) var(--s-3); min-height: 52px; border: 0; border-radius: var(--r-sm); background: none; color: var(--ink); text-align: left; font: 500 15px/1.25 var(--font-text); cursor: pointer; transition: background-color .2s; }
+.app__story:hover { background: var(--bg); }
+.app__story.is-current { background: var(--surface); }
+.app__thumb { width: 40px; height: 32px; border-radius: 8px; }
+.app__who { min-width: 0; display: grid; }
+.app__who, .app__who small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.app__who small { font-weight: 400; font-size: 13px; color: var(--muted); }
+.app__chip { display: inline-flex; align-items: center; color: var(--muted); }
+.app__chip.is-free, .shelf__chip.is-free { height: 24px; padding: 0 var(--s-2); border-radius: 99px; background: color-mix(in oklab, var(--p-accent) 12%, #fff); color: #a00c55; font: 500 13px/1 var(--font-text); white-space: nowrap; }
+
+.app__open { min-height: 0; }
+.book { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s-6); padding: var(--s-5); }
+.book > .ill { border-radius: var(--r-md); min-height: 0; width: 100%; height: 100%; object-fit: cover; }
+.book__text { display: flex; flex-direction: column; min-height: 0; padding-block: var(--s-3); }
+.book__meta { margin: 0; color: var(--muted); font-size: 14px; }
+.book__title { margin: var(--s-2) 0 0; font: var(--display-weight) 24px/1.2 var(--font-display); letter-spacing: -0.015em; }
+.book__words { margin: var(--s-6) 0 0; font: 400 clamp(24px, 1.4vw + 10px, 32px)/1.55 "Andika", var(--font-text); max-width: 22ch; }
+.book__words .w { cursor: pointer; border-radius: .3em; transition: background-color .15s; }
+.book__words .w:hover { background: var(--surface); }
+.book__end { margin: var(--s-4) 0 0; font: 700 20px/1.2 "Andika", var(--font-text); color: var(--p-accent); }
+.book__dots { display: flex; gap: 6px; margin-top: auto; padding-top: var(--s-5); }
+.book__dots i { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); }
+.book__dots i.is-on { background: var(--ink); width: 20px; border-radius: 99px; }
+.book__nav { display: flex; align-items: center; gap: var(--s-3); margin-top: var(--s-4); }
+.book__read { gap: var(--s-2); }
+.book__read .pc-say { color: var(--p-accent); }
+.book__arrow { width: 48px; height: 48px; flex: none; display: grid; place-items: center; border: 1px solid var(--line-strong); border-radius: 50%; background: #fff; color: var(--ink); cursor: pointer; transition: background-color .2s, transform .15s; }
+.book__arrow:hover:not(:disabled) { background: var(--surface); }
+.book__arrow:active:not(:disabled) { transform: scale(.94); }
+.book__arrow:disabled { opacity: .35; cursor: default; }
+.book__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.book--locked .ill { filter: saturate(.6); }
+.book__note { margin: var(--s-5) 0 0; display: flex; gap: var(--s-2); align-items: flex-start; font-size: 16px; line-height: 1.6; max-width: 36ch; }
+.book__note svg { margin-top: 5px; flex: none; color: var(--muted); }
+.book--locked .book__nav { margin-top: auto; }
+
+@media (max-width: 1023px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .app__list { display: none; }   /* the shelf below lists every story on smaller screens */
+}
+@media (max-width: 639px) {
+  #reader { margin-top: var(--s-5); flex: none; }
+  .book { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; gap: var(--s-3); padding: var(--s-3); }
+  .book > .ill { height: 150px; }
+  .book__text { padding: 0; }
+  .book__words { margin-top: var(--s-2); font-size: 20px; line-height: 1.5; }
+  .book__nav { margin-top: var(--s-3); }
+  .today__intro .today__how { display: none; }
+  .book__title { font-size: 20px; }
+  .book__dots { padding-top: var(--s-4); }
+  .book__read { flex: 1; padding-inline: var(--s-4); }
+}
+
+/* ---- the four card panels in #how ---- */
+#how .panel { --p-h: 260px; }
+#how .how-panel { display: grid; place-content: center; justify-items: center; gap: var(--s-5); background: color-mix(in oklab, var(--p-accent) 6%, var(--surface)); }
+.hw-line { margin: 0; font: 400 28px/1.5 "Andika", var(--font-text); }
+.hw-bubble { display: inline-flex; align-items: center; gap: var(--s-2); padding: var(--s-3) var(--s-5); border-radius: 99px; background: #fff; font: 700 20px/1 "Andika", var(--font-text); box-shadow: 0 10px 30px -18px rgb(0 0 0 / .4); }
+.hw-bubble .pc-say { color: var(--p-accent); }
+.hw-lang { display: inline-flex; padding: 3px; border-radius: 99px; background: #fff; font: 500 14px/1 var(--font-text); }
+.hw-lang span { padding: 10px 16px; border-radius: 99px; }
+.hw-lang .is-on { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.hw-pair { margin: 0; display: grid; gap: var(--s-2); text-align: center; font: 400 24px/1.4 "Andika", var(--font-text); }
+.hw-pair b { font-weight: 400; }
+.hw-pair span { color: var(--muted); }
+.hw-pages { display: flex; gap: var(--s-3); }
+.hw-pages i { width: 64px; height: 84px; border-radius: 10px; background: var(--c); box-shadow: 0 1px 2px rgb(0 0 0 / .06); }
+.hw-pages i.is-on { transform: translateY(-10px); box-shadow: 0 0 0 2px var(--ink); }
+.hw-count { margin: 0; font: 500 14px/1 var(--font-mono); color: var(--muted); }
+.hw-week { display: flex; gap: var(--s-3); }
+.hw-day { display: grid; justify-items: center; gap: var(--s-2); font: 500 13px/1 var(--font-text); color: var(--muted); }
+.hw-day i { width: 52px; height: 52px; border-radius: 50%; background: var(--c); }
+.hw-day.is-on { color: var(--ink); }
+.hw-day.is-on i { box-shadow: 0 0 0 3px var(--p-bg), 0 0 0 5px var(--p-accent); }
+@media (max-width: 1023px) {
+  .hw-pages { gap: var(--s-2); }
+  .hw-pages i { width: 40px; height: 54px; }
+  .hw-day i { width: 36px; height: 36px; }
+  .hw-week { gap: var(--s-2); }
+}
+@media (max-width: 639px) {
+  #how .panel { --p-h: 150px; }
+  #how .how-panel { gap: var(--s-3); }
+  .hw-line { font-size: 22px; }
+}
+
+/* ---- the library shelf: its own picture grid ---- */
+.shelf { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-5); }
+.shelf > li { grid-column: auto; }
+.shelf__item { display: grid; gap: var(--s-2); color: var(--ink); text-decoration: none; }
+.shelf__cover { display: block; aspect-ratio: 16 / 9; border-radius: var(--r-md); transition: transform .3s var(--ease, ease); }
+a.shelf__item:hover .shelf__cover { transform: translateY(-2px); }
+.shelf__item.is-locked .shelf__cover { filter: saturate(.55); }
+.shelf__title { margin-top: var(--s-2); font: 500 var(--t-card)/1.3 var(--font-text); }
+.shelf__meta { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); color: var(--muted); font-size: 14px; }
+.shelf__chip { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; white-space: nowrap; }
+@media (max-width: 639px) { .shelf { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s-4); } }
+@media (max-width: 639px) {
+  .shelf { gap: var(--s-4) var(--s-3); }
+  .shelf__meta { flex-direction: column; align-items: flex-start; gap: var(--s-1); }
+  .shelf__title { font-size: 16px; margin-top: 0; }
+}
+
+/* ---- two-screen groups on a phone (.g2m), one row on a desktop ---- */
+.shelf + .shelf { margin-top: var(--s-5); }
+@media (min-width: 640px) {
+  #questions > .split2, #plans > .plans { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-content: start; }
+  .split2__a, .plans__a { display: contents; }
+  .q-head { grid-column: 1 / span 5; grid-row: 1 / span 2; }
+  .split2__r1, .split2__r2 { grid-column: 7 / -1; }
+  .split2__r2 > :first-child { padding-top: var(--s-5); }
+  .plans__head { grid-column: 1 / span 4; }
+  .plans__free { grid-column: 5 / span 4; grid-row: 1; }
+  .plans__full { grid-column: 9 / span 4; grid-row: 1; }
+}
+@media (max-width: 639px) {
+  .g2m .shelf + .shelf { margin-top: 0; }
+  .plans__a { gap: var(--s-5); }
+}
+/* ---- the plan cards ---- */
+.card--plan .t-stat { margin: var(--s-2) 0; font: var(--display-weight) var(--t-stat)/1 var(--font-display); letter-spacing: var(--display-tracking); }
+.plan__list { margin: var(--s-2) 0 0; padding-left: 1.2em; display: grid; gap: var(--s-2); }
+
+.plan-art { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-2); margin: var(--s-2) 0; }
+.plan-art i { aspect-ratio: 4 / 3; border-radius: 8px; background: var(--c); }
+.plan-art:not(.plan-art--all) i:not(.is-on) { opacity: .3; }
+.plan-art .is-on { box-shadow: 0 0 0 2px var(--ink); }
+@media (max-width: 639px) { .plan-art { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 6px; } .plan-art i { aspect-ratio: 3 / 4; } }
+
+/* the narrowest phones: the bar's main button gives up some padding so the menu button stays on screen */
+@media (max-width: 359px) { .nav:not(.is-open) .nav__actions .btn { padding-inline: var(--s-2); font-size: 13px; } .nav__logo { gap: 6px; } }
+/* in the phone sheet the language switch sits on its own row, centred */
+.nav.is-open .lang { width: 100%; border: 1px solid var(--line-strong); padding: 3px; }
+.nav.is-open .lang button { flex: 1; }
+
+/* plan cards hold links, so they answer the pointer like every linked card */
+.card--plan { transition: transform .25s var(--ease, ease); }
+.card--plan:hover { transform: translateY(-2px); }
+/* the open book's placeholder mark a little larger, so the frame reads as a picture to come */
+.book > .ill { background-size: 34%; }
+/* the story list beside the book only from 1280: below that the shelf lists every story */
+@media (max-width: 1279px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .app__list { display: none; }
+}
+/* the tablet: four covers a row, and the four reading cards on one screen */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .shelf { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-4); }
+  .shelf__meta { flex-direction: column; align-items: flex-start; gap: var(--s-1); }
+  #how { --h: 1; }
+  #how.g2 > .wrap { display: flex; flex-direction: column; row-gap: var(--s-5); }
+  #how .panel { --p-h: 200px; }
+}
