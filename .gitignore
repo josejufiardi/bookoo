@@ -3,3 +3,4 @@
 .taste-skill/build*.json
 .taste-skill/gate.json
 shots/
+__pycache__/
