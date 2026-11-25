@@ -11,7 +11,7 @@ export default [
       { en: 'A big lion is asleep under a tree. A little mouse runs over his nose.', id: 'Seekor singa besar tidur di bawah pohon. Seekor tikus kecil berlari di atas hidungnya.', img: 'img/stories/lion-mouse-1.webp' },
       { en: 'The lion wakes up. He grabs the mouse with his big paw.', id: 'Singa bangun. Dia menangkap tikus dengan kakinya yang besar.', img: 'img/stories/lion-mouse-2.webp' },
       { en: '"Please let me go," says the mouse. "One day I can help you." The lion laughs and lets him go.', id: '"Tolong lepaskan aku," kata tikus. "Suatu hari aku bisa menolongmu." Singa tertawa dan melepaskannya.', img: 'img/stories/lion-mouse-3.webp' },
-      { en: 'One day the lion is caught in a net. He roars and roars.', id: 'Suatu hari singa terjebak dalam jaring. Dia mengaum dan terus mengaum.' },
+      { en: 'One day the lion is caught in a net. He roars and roars.', id: 'Suatu hari singa terjebak dalam jaring. Dia mengaum dan terus mengaum.', img: 'img/stories/lion-mouse-4.webp' },
       { en: 'The mouse hears him. He bites the net, bit by bit, and the lion is free.', id: 'Tikus mendengarnya. Dia menggigit jaring sedikit demi sedikit, dan singa pun bebas.' },
       { en: 'Small friends can be a big help.', id: 'Teman kecil pun bisa memberi bantuan besar.' },
     ],
