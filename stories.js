@@ -1,10 +1,11 @@
 // The stories. Each one retells an old tale that is free to share (public domain):
 // Aesop's fables, the Brothers Grimm and Indonesian folk tales. The words are our own, kept short for new readers.
 // A page shows its picture from `img` when the file exists (img/stories/<id>-<page>.webp); until then the
-// reader draws a soft placeholder in the story's colour.
+// reader draws a soft placeholder in the story's colour. `cover` (16:9, img/stories/<id>-cover.webp) is the
+// shelf card and today's card; without it they use page 1.
 export default [
   {
-    id: 'lion-mouse', color: '#f9dcc4',
+    id: 'lion-mouse', color: '#f9dcc4', cover: 'img/stories/lion-mouse-cover.webp',
     from: { en: "Aesop's fable", id: 'Fabel Aesop' },
     title: { en: 'The Lion and the Mouse', id: 'Singa dan Tikus' },
     pages: [

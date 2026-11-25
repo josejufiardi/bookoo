@@ -51,7 +51,8 @@ No purple or violet anywhere.
 4. **Safe area.** Keep faces and the main action inside the middle 60% of the picture. The site crops the edges on phones.
 5. **No words in the picture.** The page text is live on the site (so children can tap each word and hear it).
 6. **Output.** 1200 x 900 (4:3) for pages, 1600 x 900 (16:9) for the cover. Save as WebP:
-   `img/stories/<story id>-<page>.webp` and `img/stories/<story id>-cover.webp`.
+   `img/stories/<story id>-<page>.webp` and `img/stories/<story id>-cover.webp`. In `stories.js`, a page gets `img: '...'`
+   and the story gets `cover: '...'` (the shelf card and today's card; without a cover they show page 1).
 7. **Keep it gentle.** Danger is shown with a worried face, never a frightening one (a net, not a trap with spikes; a big giant,
    not a monster).
 8. **Check before you keep a picture:** outlines navy and even, colours from the palette, no text, faces in the middle,

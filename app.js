@@ -212,9 +212,12 @@ function readLabel() {
 }
 
 // ---------- the hero's card for today's story ----------
+const coverOf = s => s.cover || s.pages[0].img
+
 function renderTodayCard() {
   const s = stories[todayIndex]
-  document.querySelector('[data-today-card]').innerHTML = `${picture(s, 0)}
+  const cover = s.cover ? `<img class="ill" src="${s.cover}" alt="${esc(t().picture(s.title[state.lang], 1))}">` : picture(s, 0)
+  document.querySelector('[data-today-card]').innerHTML = `${cover}
     <span class="today-card__row"><span><small>${esc(t().todayLabel)}</small><b>${esc(s.title[state.lang])}</b></span><span class="chip chip--free">${esc(t().free)}</span></span>`
 }
 
@@ -222,7 +225,7 @@ function renderTodayCard() {
 function renderShelf() {
   const cards = stories.map((s, i) => {
     const open = i === todayIndex
-    const inner = `<span class="shelf__cover" style="--c:${s.color}${s.pages[0].img ? `;background:url(${s.pages[0].img}) center / cover` : ''}" role="img" aria-label="${esc(t().picture(s.title[state.lang], 1))}"></span>
+    const inner = `<span class="shelf__cover" style="--c:${s.color}${coverOf(s) ? `;background:url(${coverOf(s)}) center / cover` : ''}" role="img" aria-label="${esc(t().picture(s.title[state.lang], 1))}"></span>
       <span class="shelf__title">${esc(s.title[state.lang])}</span>
       <span class="shelf__meta">${esc(s.from[state.lang])}<span class="shelf__chip${open ? ' is-free' : ''}">${open ? esc(t().today) : lockIcon + ' ' + esc(t().locked)}</span></span>`
     return `<li>${open ? `<a class="shelf__item" href="#today">${inner}</a>` : `<div class="shelf__item is-locked">${inner}</div>`}</li>`
