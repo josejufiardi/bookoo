@@ -64,7 +64,11 @@ const UI = {
 }
 
 const dayNumber = (d = new Date()) => Math.floor((d - d.getTimezoneOffset() * 6e4) / 864e5)
-const todayIndex = dayNumber() % stories.length
+// shortcut: the Lion and the Mouse is pinned as today's story to show the finished pictures; set SHOWCASE to null
+// to go back to a new story each day once more stories have pictures.
+const SHOWCASE = 'lion-mouse'
+const rotation = n => ((n % stories.length) + stories.length) % stories.length
+const todayIndex = SHOWCASE ? stories.findIndex(s => s.id === SHOWCASE) : rotation(dayNumber())
 const state = { lang: 'en', story: todayIndex, page: 0 }
 const t = () => UI[state.lang]
 const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c])
@@ -237,7 +241,7 @@ function renderWeek() {
   const today = new Date()
   document.querySelector('[data-week]').innerHTML = [-3, -2, -1, 0, 1, 2, 3].map(k => {
     const d = new Date(today); d.setDate(d.getDate() + k)
-    const s = stories[((dayNumber(d) % stories.length) + stories.length) % stories.length]
+    const s = stories[rotation(todayIndex + k)]
     return `<span class="hw-day${k === 0 ? ' is-on' : ''}"><small>${t().days[d.getDay()]}</small><i style="--c:${s.color}"></i></span>`
   }).join('')
 }

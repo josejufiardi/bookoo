@@ -255,3 +255,34 @@ html body main .faq .faq__item > h3, html body main .card > h3, html body main .
 
 /* a real drawing needs no dashed placeholder edge */
 img.ill { border: 0 !important; background: none; }
+
+/* ---- every section is as tall as its content ----
+   The kit sets each section to exactly one or two screens; on short laptop windows that cut the content or ran it
+   into the next section, and on tall ones it left empty gaps. Here the content sets the height. */
+html main > :is(section, .section), html footer.closing { height: auto; min-height: 0; }
+html main > :is(section, .section):is(.g2, .g2m) > .wrap, html footer.closing.g2m > .wrap { grid-template-rows: auto auto; row-gap: var(--s-7); }
+html main > :is(section, .section).g2 > .wrap { display: flex; flex-direction: column; }
+.hero--kids { min-height: min(100svh, 880px); padding-bottom: clamp(150px, 11vw, 210px); }   /* the words stay above the hills */
+.hero--kids > .wrap { height: auto; }
+#reader { flex: none; height: clamp(460px, 64vh, 600px); }
+.close__word { margin-top: var(--s-7); }
+@media (max-width: 639px) {
+  .hero--kids { min-height: 0; padding-bottom: 130px; }
+  #reader { height: auto; }
+}
+
+/* review fixes */
+html main > section.hero.hero--kids { padding-bottom: clamp(150px, 11vw, 210px); height: auto; }
+html main > section.hero.hero--kids .kids-hero { height: auto; padding-bottom: var(--s-5); }
+html main > :is(section, .section).g2m > .wrap { row-gap: var(--s-5); }
+@media (min-width: 640px) { html #questions > .split2 { row-gap: 0; } .split2__r2 > :first-child { padding-top: var(--s-5); } }
+html main .shelf { align-content: start; align-self: start; }
+.shelf__item { height: auto; }
+.shelf > li { display: grid; }
+@media (max-width: 639px) {
+  html main > section.hero.hero--kids { padding-bottom: 120px; }
+  html #plans .plans__full { align-self: start; }
+}
+@media (max-width: 639px) {
+  html main > :is(section, .section):not(.hero), html footer.closing { min-height: 0; grid-template-rows: auto; }
+}
