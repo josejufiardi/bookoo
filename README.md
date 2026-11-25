@@ -35,12 +35,12 @@ device voice.
 After adding or replacing a recording, time its words so the highlight follows the narrator:
 
 ```
-pip install faster-whisper
+pip install torch transformers
 python3 tools/align.py
 ```
 
-It listens to each recording and rewrites `audio/stories/timings.js`. The first run downloads a speech model
-(about 500 MB) from huggingface.co.
+It lines each recording up with its page text (forced alignment, English and Indonesian alike) and rewrites
+`audio/stories/timings.js`. The first run downloads the alignment model (about 1.2 GB) from huggingface.co.
 
 ## Stories
 
