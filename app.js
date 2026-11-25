@@ -222,7 +222,7 @@ function renderTodayCard() {
 function renderShelf() {
   const cards = stories.map((s, i) => {
     const open = i === todayIndex
-    const inner = `<span class="shelf__cover" style="--c:${s.color}" role="img" aria-label="${esc(t().picture(s.title[state.lang], 1))}"></span>
+    const inner = `<span class="shelf__cover" style="--c:${s.color}${s.pages[0].img ? `;background:url(${s.pages[0].img}) center / cover` : ''}" role="img" aria-label="${esc(t().picture(s.title[state.lang], 1))}"></span>
       <span class="shelf__title">${esc(s.title[state.lang])}</span>
       <span class="shelf__meta">${esc(s.from[state.lang])}<span class="shelf__chip${open ? ' is-free' : ''}">${open ? esc(t().today) : lockIcon + ' ' + esc(t().locked)}</span></span>`
     return `<li>${open ? `<a class="shelf__item" href="#today">${inner}</a>` : `<div class="shelf__item is-locked">${inner}</div>`}</li>`

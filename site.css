@@ -252,3 +252,6 @@ html .card > h3, html .card--plan h3, .faq h3 { font-size: 22px; line-height: 1.
 }
 html body main .faq .faq__item > h3, html body main .card > h3, html body main .card--plan h3 { font-size: 22px; }
 @media (max-width: 339px) { .mascot { display: none; } }
+
+/* a real drawing needs no dashed placeholder edge */
+img.ill { border: 0 !important; background: none; }
