@@ -197,5 +197,17 @@ export default {
    4.016
   ],
   "end": 4.758
+ },
+ "audio/stories/lion-mouse-6-id.mp3": {
+  "starts": [
+   0.341,
+   0.762,
+   1.283,
+   2.15,
+   2.767,
+   3.288,
+   3.809
+  ],
+  "end": 4.73
  }
 }

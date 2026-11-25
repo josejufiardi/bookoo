@@ -15,7 +15,7 @@ export default [
       { en: '"Please let me go," says the mouse. "One day I can help you." The lion laughs and lets him go.', id: '"Tolong lepaskan aku," kata tikus. "Suatu hari aku bisa menolongmu." Singa tertawa dan melepaskannya.', img: 'img/stories/lion-mouse-3.webp', audio: { en: 'audio/stories/lion-mouse-3-en.mp3', id: 'audio/stories/lion-mouse-3-id.mp3' } },
       { en: 'One day the lion is caught in a net. He roars and roars.', id: 'Suatu hari singa terjebak dalam jaring. Dia mengaum dan terus mengaum.', img: 'img/stories/lion-mouse-4.webp', audio: { en: 'audio/stories/lion-mouse-4-en.mp3', id: 'audio/stories/lion-mouse-4-id.mp3' } },
       { en: 'The mouse hears him. He bites the net, bit by bit, and the lion is free.', id: 'Tikus mendengarnya. Dia menggigit jaring sedikit demi sedikit, dan singa pun bebas.', img: 'img/stories/lion-mouse-5.webp', audio: { en: 'audio/stories/lion-mouse-5-en.mp3', id: 'audio/stories/lion-mouse-5-id.mp3' } },
-      { en: 'Small friends can be a big help.', id: 'Teman kecil pun bisa memberi bantuan besar.', img: 'img/stories/lion-mouse-6.webp', audio: { en: 'audio/stories/lion-mouse-6-en.mp3' } },
+      { en: 'Small friends can be a big help.', id: 'Teman kecil pun bisa memberi bantuan besar.', img: 'img/stories/lion-mouse-6.webp', audio: { en: 'audio/stories/lion-mouse-6-en.mp3', id: 'audio/stories/lion-mouse-6-id.mp3' } },
     ],
   },
   {
