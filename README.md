@@ -28,8 +28,19 @@ The story of the day rotates through the list by date.
 
 ## Sound
 
-**Read to me** and tapping a word use the device's own voice (the browser's speech synthesis). Recorded
-narration can replace it later in `app.js` (look for the `shortcut:` comment).
+**Read to me** plays a page's recorded narration when it has one (`audio` in `stories.js`, files in
+`audio/stories/<story>-<page>-<lang>.mp3`), and the device's own voice otherwise. Tapping a word always uses the
+device voice.
+
+After adding or replacing a recording, time its words so the highlight follows the narrator:
+
+```
+pip install faster-whisper
+python3 tools/align.py
+```
+
+It listens to each recording and rewrites `audio/stories/timings.js`. The first run downloads a speech model
+(about 500 MB) from huggingface.co.
 
 ## Stories
 

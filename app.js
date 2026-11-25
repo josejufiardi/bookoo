@@ -1,4 +1,5 @@
 import stories from './stories.js'
+import timings from './audio/stories/timings.js'
 
 // Indonesian words for every [data-i18n] key; English is what the page is written in.
 const ID = {
@@ -205,8 +206,8 @@ function readPage() {
   readLabel()
   speechSynthesis.speak(u)
 }
-// shortcut: the recordings carry no word timings, so the highlight moves by each word's share of the letters, with a
-// pause after commas and full stops; exact timings need a voice service that reports them.
+// When each word starts in a recording comes from tools/align.py (audio/stories/timings.js). A recording not timed
+// yet falls back to each word's share of the letters, with a pause after commas and full stops.
 function wordEnds(spans) {
   const w = spans.map(s => s.textContent.length + (/[.!?]["”]?$/.test(s.textContent) ? 6 : /[,;:]["”]?$/.test(s.textContent) ? 3 : 1))
   const total = w.reduce((a, b) => a + b, 0)
@@ -216,10 +217,12 @@ function wordEnds(spans) {
 function playClip(src, spans) {
   stopVoice()
   const a = clip = new Audio(src)
+  const timed = timings[src]?.starts.length === spans.length ? timings[src] : null
   const ends = wordEnds(spans)
   const tick = () => {
     if (clip !== a) return
-    if (a.duration) { const f = a.currentTime / a.duration; light(spans[ends.findIndex(e => f <= e)]) }
+    if (timed) light(spans[timed.starts.findLastIndex(t => a.currentTime >= t)])
+    else if (a.duration) { const f = a.currentTime / a.duration; light(spans[ends.findIndex(e => f <= e)]) }
     requestAnimationFrame(tick)
   }
   a.onended = a.onerror = () => { if (clip === a) { clip = null; speaking = false; light(null); readLabel() } }
