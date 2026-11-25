@@ -136,7 +136,7 @@ function renderReader() {
       <div class="book__dots" aria-hidden="true">${s.pages.map((_, i) => `<i class="${i < state.page ? 'is-done' : i === state.page ? 'is-on' : ''}"></i>`).join('')}</div>
       <div class="book__nav">
         <button type="button" class="book__arrow" data-turn="-1" aria-label="${esc(t().back)}" ${state.page === 0 ? 'disabled' : ''}><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg></button>
-        <button type="button" class="btn btn--secondary book__read" data-read ${'speechSynthesis' in window ? '' : 'hidden'}><span class="pc-say" aria-hidden="true"></span><span data-read-label>${esc(t().read)}</span></button>
+        <button type="button" class="btn btn--secondary book__read" data-read ${'speechSynthesis' in window || s.pages[state.page].audio?.[L] ? '' : 'hidden'}><span class="pc-say" aria-hidden="true"></span><span data-read-label>${esc(t().read)}</span></button>
         ${last
           ? `<button type="button" class="book__arrow" data-again aria-label="${esc(t().again)}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M15.5 10a5.5 5.5 0 1 1-1.6-3.9M14.5 3v3.5H11"/></svg></button>`
           : `<button type="button" class="book__arrow" data-turn="1" aria-label="${esc(t().next)}"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button>`}
@@ -162,8 +162,9 @@ document.addEventListener('keydown', e => {
 })
 
 // ---------- the voice ----------
-// shortcut: the device's own voice (speechSynthesis); swap in recorded narration when the audio files exist.
+// Recorded narration where a page has it (stories.js `audio`), else the device's own voice (speechSynthesis).
 let speaking = false
+let clip = null
 function voiceFor(lang) {
   const tag = lang === 'id' ? 'id' : 'en'
   return speechSynthesis.getVoices().find(v => v.lang.toLowerCase().startsWith(tag))
@@ -191,8 +192,10 @@ function light(el) {
 function readPage() {
   const box = reader.querySelector('[data-words]')
   if (!box) return
-  speechSynthesis.cancel()
   const spans = [...box.querySelectorAll('.w')]
+  const src = stories[state.story].pages[state.page].audio?.[state.lang]
+  if (src) return playClip(src, spans)
+  speechSynthesis.cancel()
   const u = utter(box.textContent, e => {
     if (e.name && e.name !== 'word') return
     light(spans.findLast(s => Number(s.dataset.at) <= e.charIndex))
@@ -202,10 +205,32 @@ function readPage() {
   readLabel()
   speechSynthesis.speak(u)
 }
+// shortcut: the recordings carry no word timings, so the highlight moves by each word's share of the letters, with a
+// pause after commas and full stops; exact timings need a voice service that reports them.
+function wordEnds(spans) {
+  const w = spans.map(s => s.textContent.length + (/[.!?]["”]?$/.test(s.textContent) ? 6 : /[,;:]["”]?$/.test(s.textContent) ? 3 : 1))
+  const total = w.reduce((a, b) => a + b, 0)
+  let sum = 0
+  return w.map(x => (sum += x) / total)
+}
+function playClip(src, spans) {
+  stopVoice()
+  const a = clip = new Audio(src)
+  const ends = wordEnds(spans)
+  const tick = () => {
+    if (clip !== a) return
+    if (a.duration) { const f = a.currentTime / a.duration; light(spans[ends.findIndex(e => f <= e)]) }
+    requestAnimationFrame(tick)
+  }
+  a.onended = a.onerror = () => { if (clip === a) { clip = null; speaking = false; light(null); readLabel() } }
+  speaking = true
+  readLabel()
+  a.play().then(tick, a.onerror)
+}
 function stopVoice() {
-  if (!('speechSynthesis' in window)) return
+  if (clip) { clip.pause(); clip = null }
   speaking = false
-  speechSynthesis.cancel()
+  if ('speechSynthesis' in window) speechSynthesis.cancel()
   light(null)
   readLabel()
 }

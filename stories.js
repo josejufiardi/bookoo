@@ -2,19 +2,20 @@
 // Aesop's fables, the Brothers Grimm and Indonesian folk tales. The words are our own, kept short for new readers.
 // A page shows its picture from `img` when the file exists (img/stories/<id>-<page>.webp); until then the
 // reader draws a soft placeholder in the story's colour. `cover` (16:9, img/stories/<id>-cover.webp) is the
-// shelf card and today's card; without it they use page 1.
+// shelf card and today's card; without it they use page 1. A page's `audio` holds recorded narration per language
+// (audio/stories/<id>-<page>-<lang>.mp3); Read to me plays it, and uses the device voice where there is none.
 export default [
   {
     id: 'lion-mouse', color: '#f9dcc4', cover: 'img/stories/lion-mouse-cover.webp',
     from: { en: "Aesop's fable", id: 'Fabel Aesop' },
     title: { en: 'The Lion and the Mouse', id: 'Singa dan Tikus' },
     pages: [
-      { en: 'A big lion is asleep under a tree. A little mouse runs over his nose.', id: 'Seekor singa besar tidur di bawah pohon. Seekor tikus kecil berlari di atas hidungnya.', img: 'img/stories/lion-mouse-1.webp' },
-      { en: 'The lion wakes up. He grabs the mouse with his big paw.', id: 'Singa bangun. Dia menangkap tikus dengan kakinya yang besar.', img: 'img/stories/lion-mouse-2.webp' },
-      { en: '"Please let me go," says the mouse. "One day I can help you." The lion laughs and lets him go.', id: '"Tolong lepaskan aku," kata tikus. "Suatu hari aku bisa menolongmu." Singa tertawa dan melepaskannya.', img: 'img/stories/lion-mouse-3.webp' },
-      { en: 'One day the lion is caught in a net. He roars and roars.', id: 'Suatu hari singa terjebak dalam jaring. Dia mengaum dan terus mengaum.', img: 'img/stories/lion-mouse-4.webp' },
+      { en: 'A big lion is asleep under a tree. A little mouse runs over his nose.', id: 'Seekor singa besar tidur di bawah pohon. Seekor tikus kecil berlari di atas hidungnya.', img: 'img/stories/lion-mouse-1.webp', audio: { en: 'audio/stories/lion-mouse-1-en.mp3' } },
+      { en: 'The lion wakes up. He grabs the mouse with his big paw.', id: 'Singa bangun. Dia menangkap tikus dengan kakinya yang besar.', img: 'img/stories/lion-mouse-2.webp', audio: { en: 'audio/stories/lion-mouse-2-en.mp3' } },
+      { en: '"Please let me go," says the mouse. "One day I can help you." The lion laughs and lets him go.', id: '"Tolong lepaskan aku," kata tikus. "Suatu hari aku bisa menolongmu." Singa tertawa dan melepaskannya.', img: 'img/stories/lion-mouse-3.webp', audio: { en: 'audio/stories/lion-mouse-3-en.mp3' } },
+      { en: 'One day the lion is caught in a net. He roars and roars.', id: 'Suatu hari singa terjebak dalam jaring. Dia mengaum dan terus mengaum.', img: 'img/stories/lion-mouse-4.webp', audio: { en: 'audio/stories/lion-mouse-4-en.mp3' } },
       { en: 'The mouse hears him. He bites the net, bit by bit, and the lion is free.', id: 'Tikus mendengarnya. Dia menggigit jaring sedikit demi sedikit, dan singa pun bebas.', img: 'img/stories/lion-mouse-5.webp' },
-      { en: 'Small friends can be a big help.', id: 'Teman kecil pun bisa memberi bantuan besar.', img: 'img/stories/lion-mouse-6.webp' },
+      { en: 'Small friends can be a big help.', id: 'Teman kecil pun bisa memberi bantuan besar.', img: 'img/stories/lion-mouse-6.webp', audio: { en: 'audio/stories/lion-mouse-6-en.mp3' } },
     ],
   },
   {
