@@ -97,3 +97,30 @@ For pages 2 to 6 and the cover, keep the first and last paragraphs and swap only
 | 5 | At the edge of the sunny meadow, the tiny grey-brown mouse with big round pink ears stands on a simple rope net and chews through a rope with determined little teeth; several ropes are already broken. Inside the net, the big friendly lion with the fluffy sunny-yellow mane watches with wide, hopeful eyes. |
 | 6 | Under the big round leaf-green tree in the sunny meadow, the big friendly lion with the fluffy sunny-yellow mane and the tiny grey-brown mouse with big round pink ears are happy friends: the mouse sits on top of the lion's mane and both smile. Pieces of broken rope lie on the grass. Warm late-afternoon light. |
 | Cover | Under the big round leaf-green tree in the sunny meadow, the big friendly lion with the fluffy sunny-yellow mane lies on the grass with the tiny grey-brown mouse with big round pink ears standing proudly on his paw, both smiling at the viewer, plenty of plain sky at the top. (In the ending, write "Wide picture, 16:9".) |
+
+---
+
+## Story: Kancil and the Crocodiles (`kancil-crocodiles`)
+
+Story colour: soft sky blue (#CFE6F2 on the site).
+
+The characters, described the same way on every page:
+- Kancil: "a small, slim mouse deer with soft caramel-brown fur, a cream belly, thin legs, big shiny dark eyes and a clever little smile"
+- the crocodiles: "friendly, round, leaf-green crocodiles with soft rounded snouts, big round eyes and no teeth showing"
+
+The setting, the same on every page: "a wide, calm blue river in a sunny tropical forest, with palm and banana trees on the banks, and on the far bank a tree full of round orange fruit".
+
+Style paragraph (first) and ending (last) as in section 1, with "soft sky-blue background".
+
+| Page | Middle paragraph |
+|---|---|
+| 1 | On the near bank of the river, Kancil stands on his thin legs and looks across the water at the tree full of round orange fruit on the far bank, licking his lips, his big eyes wishing. |
+| 2 | The river is full of friendly, round, leaf-green crocodiles; only their round eyes and bumpy backs show above the calm blue water. Kancil stands on the bank, ears up, looking at them a little worried. |
+| 3 | Kancil stands tall on a rock at the edge of the river, one front hoof raised like a teacher, talking to the crocodiles, who lift their heads out of the water and listen with big curious eyes. |
+| 4 | Seen from above the river: the friendly leaf-green crocodiles float in one long straight line from the near bank to the far bank, like stepping stones, smiling. Kancil watches from the bank with a clever smile. |
+| 5 | Kancil leaps happily from one crocodile's back to the next across the river, mid-jump, legs tucked, counting with a big grin. The crocodiles look up at him, puzzled. |
+| 6 | On the far bank under the tree, Kancil sits happily eating a round orange fruit, with a full, proud smile. In the river behind him, the crocodiles look at each other, confused. |
+| Cover (16:9) | Kancil stands proudly on the back of a smiling leaf-green crocodile in the middle of the calm blue river, the tree with orange fruit on the far bank, plenty of plain sky at the top. |
+
+Narration style, English: "Read this like a warm, playful storyteller reading a picture book aloud to a 5-year-old. Speak slowly and clearly, with a smile in your voice and small pauses between sentences. Kancil speaks in a bright, quick, cheeky voice, very clever and confident. The crocodiles are slow and sleepy. When Kancil counts, count with a happy bounce, one number per jump."
+Narration style, Indonesian: "Bacakan seperti pendongeng yang hangat dan ceria, membacakan buku cerita bergambar untuk anak umur 5 tahun. Bicara pelan dan jelas, dengan suara tersenyum dan jeda kecil di antara kalimat. Kancil berbicara dengan suara ceria, cepat, dan cerdik, penuh percaya diri. Para buaya terdengar lambat dan mengantuk. Saat Kancil berhitung, hitung dengan riang, satu angka setiap lompatan. Gunakan pengucapan bahasa Indonesia yang alami."
